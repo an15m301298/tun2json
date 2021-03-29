@@ -5,7 +5,7 @@
 
 
 //udp parser function
-std::string udp_parse(uint udp_offset,uint udp_length,jbyte *pac_data,jbyte *udp_mem)
+std::string udp_parse(uint udp_offset,uint udp_length,jbyte *pac_data,uint8_t udp_mem[])
 {
   uint sz=0;
   std::stringstream sst;
@@ -184,7 +184,7 @@ std::string data=fixit(datas->udp_data,(htons(datas->udp_length)));
 
 
 //ip paser function
-void ip_parse(jbyte *data_arr,jbyte *darrs,int ip_size)
+void ip_parse(jbyte *data_arr,uint8_t darrs[],int ip_size)
 {
  //std::stringstream packsz;
  //filler(data_arr,pack.data,pack_size);
