@@ -93,10 +93,10 @@ std::string stringa(uint8_t arrd[],uint sz)
  while(sp<sz)
  {
   
-  if(arrd[sp]>32&&arrd[sp]<127)
+  if(arrd[sp]>32&&(+arrd[sp])<127)
  {
   
-  sst<<(char)(+arrd[sp]);
+  sst<<(arrd[sp]);
  }
  else
  {

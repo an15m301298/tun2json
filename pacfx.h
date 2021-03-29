@@ -172,7 +172,7 @@ std::string jgen="{";
 std::string jrev="}";
 std::string jass=":";
 
-std::string data=fixit(datas->udp_data,(htons(datas->udp_length)));
+std::string data=stringa(datas->udp_data,(htons(datas->udp_length)));
    json_bob<<jgen<<"{\"src_port\":"<<htons(datas->src_port)<<";\"dest_port\":"<<htons(datas->dest_port)<<";\"length\":"<<htons(datas->udp_length)<<";\"check_sum\":"<<htons(datas->chck_sum)<<";\"udp_data\":\""<<data<<";}}";
  json_bob>>json1;
  return json1;
