@@ -1,10 +1,11 @@
 #include "pacton.h"
 #include "pacutil.h"
 #include<arpa/inet.h>
+#include<vector>
 
 
 //udp parser function
-std::string udp_parse(uint udp_offset,uint udp_length,jbyte *pac_data,jbyte udp_mem[])
+std::string udp_parse(uint udp_offset,uint udp_length,jbyte *pac_data,jbyte *udp_mem)
 {
   uint sz=0;
   std::stringstream sst;
@@ -183,7 +184,7 @@ std::string data=fixit(datas->udp_data,(htons(datas->udp_length)));
 
 
 //ip paser function
-void ip_parse(jbyte *data_arr,jbyte darrs[],int ip_size)
+void ip_parse(jbyte *data_arr,jbyte *darrs,int ip_size)
 {
  //std::stringstream packsz;
  //filler(data_arr,pack.data,pack_size);
@@ -233,7 +234,7 @@ uint16_t checksum;
 //generate tcp checksum
 
 
-//Auto Reply function
+/*Auto Reply function
 void autoSync(packet main_packet,uint8_t res[])
 {
 pseudo_tcp_packet tcp_pack;
@@ -244,7 +245,7 @@ pseudo_tcp_packet tcp_pack;
   tcp_pack.tcp_holder.tcp=pseudo_tcp;
 
 filler(tcp_pack.packet_array,res,sizeof(tcp_pack.packet_array));
-}
+}*/
 //end of function
 
 //gets main properties of packet

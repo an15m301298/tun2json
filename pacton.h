@@ -1,6 +1,6 @@
 #include<iostream>
 #include<jni.h>
-
+#include "pacton2.h"
 
 struct ip_header
 {
@@ -188,6 +188,7 @@ union pseudo_tcp_packet
   }tcp_holder;
   
   uint8_t packet_array[];
+ // std::vector<uint8_t> packet_array;
 };
 
 

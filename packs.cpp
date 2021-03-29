@@ -60,10 +60,10 @@ props="\n\n"+ip_str+"\n"+udp_str;
 return (jenv)->NewStringUTF(props.c_str());
 }
 
-jstring Java_com_lecturehall_vpnmode_Vpnser_passPack(JNIEnv *jenv,jobject jobj,jbyteArray headers,jint dsize)
+/*jstring Java_com_lecturehall_vpnmode_Vpnser_passPack(JNIEnv *jenv,jobject jobj,jbyteArray headers,jint dsize)
 {
 
-}
+}*/
 /*std::string props="\n\nIHL: ";
 
 props=props+mkstr((+pprops.ihl));
