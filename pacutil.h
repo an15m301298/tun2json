@@ -84,35 +84,6 @@ return readi;
 //___end of function
 
 
-//make string of raw bytes with chars added
-std::string stringa(uint8_t arrd[],uint sz)
-{
-  uint sp=0;
- std::stringstream sst;
- std::string readi;
- while(sp<sz)
- {
-  
-  if(arrd[sp]>32&&(+arrd[sp])<127)
- {
-  
-  sst<<(arrd[sp]);
- }
- else
- {
-  sst<<(+arrd[sp]);
-  }
-  sp++; 
- }
-  
- sst>>readi;
- return readi;
-}
-
-//end of function
-
-
-
 //packet filler initial uint8_t==jbyte
 void  filler(uint8_t *src_arr,uint8_t dest_arr[],int size)
 {
@@ -228,6 +199,40 @@ uint8_t binrevo(jbyte de)
   
   return cach.no;
 }
+
+uint8_t* arr_revo8(uint8_t)
+{
+  
+}
+
+
+
+//make string of raw bytes with chars added
+std::string stringa(uint8_t arrd[],uint sz)
+{
+  uint sp=0;
+ std::stringstream sst;
+ std::string readi;
+ while(sp<sz)
+ {
+  
+  if(arrd[sp]>32&&(+arrd[sp])<127)
+ {
+  
+  sst<<binrevo(arrd[sp]);
+ }
+ else
+ {
+  sst<<+binrevo(arrd[sp]);
+  }
+  sp++; 
+ }
+  
+ sst>>readi;
+ return readi;
+}
+
+//end of function
 
 
 
