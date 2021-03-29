@@ -30,7 +30,7 @@ ip_str=dataSmith(&fire_pac.ip_data.ip_struct);
 
 
 //packet_payload switcher
-switch((+props.load_type))
+switch((+pprops.load_type))
 {
 //tcp_parser
   case 6:
