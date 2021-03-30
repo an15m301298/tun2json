@@ -85,7 +85,7 @@ return readi;
 
 
 //packet filler initial uint8_t==jbyte
-void  filler(uint8_t *src_arr,uint8_t dest_arr[],int size)
+void filler(uint8_t *src_arr,uint8_t dest_arr[],int size)
 {
   
   int sz=size;
@@ -213,17 +213,18 @@ std::string stringa(uint8_t arrd[],uint sz)
   uint sp=0;
  std::stringstream sst;
  std::string readi;
+ sst<<"wanted:";
  while(sp<sz)
  {
   
-  if(arrd[sp]>32&&(+arrd[sp])<127)
+  if((+arrd[sp])>32&&(+arrd[sp])<127)
  {
   
-  sst<<binrevo(arrd[sp]);
+  sst<<"("<<(arrd[sp])<<")";
  }
  else
  {
-  sst<<+binrevo(arrd[sp]);
+  sst<<"["<<(arrd[sp])<<"]";
   }
   sp++; 
  }

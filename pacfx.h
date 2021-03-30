@@ -4,6 +4,24 @@
 #include<vector>
 
 
+
+//udp dns parser
+
+void dns_pack(uint8_t dns_raw[],uint8_t *dns_arr,uint16_t dns_data_size)
+{
+  //dns_union dns_uno;
+  int x=0;
+  
+  while(x<10)
+  {
+   dns_arr[x]=(+dns_raw[x]);
+   x++;
+  }
+  
+}
+
+//end of udp
+
 //udp parser function
 std::string udp_parse(uint udp_offset,uint udp_length,jbyte *pac_data,uint8_t udp_mem[])
 {
@@ -165,6 +183,8 @@ std::string jass=":";
 
 std::string dataSmith(udp_header *datas)
 {
+dns_union dns_un;
+
 std::string json1;
 std::stringstream json_bob;
 
@@ -172,8 +192,11 @@ std::string jgen="{";
 std::string jrev="}";
 std::string jass=":";
 
-std::string data=stringa(datas->udp_data,(htons(datas->udp_length)));
-   json_bob<<jgen<<"{\"src_port\":"<<htons(datas->src_port)<<";\"dest_port\":"<<htons(datas->dest_port)<<";\"length\":"<<htons(datas->udp_length)<<";\"check_sum\":"<<htons(datas->chck_sum)<<";\"udp_data\":\""<<data<<";}}";
+
+dns_pack(datas->udp_data,dns_un.dns_array,(htons(datas->udp_length))-8);
+
+//std::string data=stringa(datas->udp_data,(htons(datas->udp_length))-8);
+  json_bob<<jgen<<"{\"src_port\":"<<htons(datas->src_port)<<";\"dest_port\":"<<htons(datas->dest_port)<<";\"length\":"<<htons(datas->udp_length)<<";\"check_sum\":"<<htons(datas->chck_sum)<<";\"udp_data\":\""<<";\"dns_id\":\""<<dns_un.dns.dns_id<<";\"query_type\":\""<<dns_un.dns.query_type<<";}}";
  json_bob>>json1;
  return json1;
 }
@@ -291,3 +314,4 @@ pacprops pp;
   */
  return pp;
 }
+

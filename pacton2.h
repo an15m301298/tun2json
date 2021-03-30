@@ -16,3 +16,11 @@ struct dns_struct
  
  uint8_t dns_payload[];
 };
+
+
+union dns_union
+{
+ dns_struct dns;
+ uint8_t dns_array[];
+
+};
